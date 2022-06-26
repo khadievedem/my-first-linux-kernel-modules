@@ -6,11 +6,13 @@
 
 static int __init my_init(void)
 {
+	int num_major = register_device();
 	return 0;
 }
 
 static void __exit my_exit(void)
 {
+	unregister_device();
 	return;
 }
 
@@ -44,7 +46,7 @@ int register_device(void)
 	return 0;
 }
 
-void unregister_devie(void)
+void unregister_device(void)
 {
 	printk(KERN_NOTICE "[%s] unregister_device() is called.\n",
 	       device_name);
