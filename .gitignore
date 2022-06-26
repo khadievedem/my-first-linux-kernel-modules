@@ -1,1 +1,11 @@
+# ignore vscode files
 .vscode
+
+# ignore compiled files:
+src/*.o
+src/*.ko
+src/*.mod*
+src/*.cmd
+*.cmd
+*.symvers
+*.order
