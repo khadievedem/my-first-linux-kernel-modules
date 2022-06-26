@@ -4,18 +4,6 @@
 #include <linux/fs.h>
 #include <linux/uaccess.h>
 
-static int __init my_init(void)
-{
-	int num_major = register_device();
-	return 0;
-}
-
-static void __exit my_exit(void)
-{
-	unregister_device();
-	return;
-}
-
 static ssize_t device_file_read(struct file *, char *, size_t, loff_t *);
 static unsigned int device_file_major_number;
 static const char device_name[] = "Simple-driver";
@@ -74,6 +62,18 @@ static ssize_t device_file_read(struct file *file_ptr, char __user *user_buffer,
 	}
 	*position += count;
 	return count;
+}
+
+static int __init my_init(void)
+{
+	int num_major = register_device();
+	return 0;
+}
+
+static void __exit my_exit(void)
+{
+	unregister_device();
+	return;
 }
 
 module_init(my_init);
