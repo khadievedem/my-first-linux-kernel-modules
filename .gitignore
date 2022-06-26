@@ -6,6 +6,8 @@ src/*.o
 src/*.ko
 src/*.mod*
 src/*.cmd
+*.o
+*.ko
 *.cmd
 *.symvers
 *.order
