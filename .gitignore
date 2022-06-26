@@ -2,7 +2,7 @@
 .vscode
 
 # ignore compiled files:
-src/*.o
+src/*.o*
 src/*.ko
 src/*.mod*
 src/*.cmd
