@@ -9,5 +9,6 @@ src/*.cmd
 *.o
 *.ko
 *.cmd
+*.mod*
 *.symvers
 *.order
