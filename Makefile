@@ -1,13 +1,20 @@
 TARGER_MODULE:=simple-module
 
+ifeq ($(strip $(MODULE)),)
+	$(TARGER_MODULE)-objs := src/main.o src/my_simple_module.o
+else ifeq ($(MODULE), $(TARGER_MODULE))
+	$(TARGER_MODULE)-objs := src/main.o src/my_simple_module.o
+else
+	TARGER_MODULE:=$(MODULE)
+endif
+
+obj-m:=$(TARGER_MODULE).o
+
 CLANG_FORMAT=clang-format
 FORMAT_SRC=src/my_simple_module.c src/main.c src/my_simple_module.h
 
 KERNEL_SRC=/lib/modules/$(shell uname -r)/build
 PWD=$(shell pwd)
-
-$(TARGER_MODULE)-objs := src/main.o src/my_simple_module.o
-obj-m:=$(TARGER_MODULE).o
 
 all:
 	$(MAKE) -C $(KERNEL_SRC) M=$(PWD) modules
