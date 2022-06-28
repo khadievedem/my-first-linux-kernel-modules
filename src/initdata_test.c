@@ -18,7 +18,7 @@ static int __init initdata_init(void)
 
 static void __exit initdata_exit(void)
 {
-	printk(KERN_INFO "[] Exit from the module. \n", MODULE_NAME);
+	printk(KERN_INFO "[%s] Exit from the module. \n", MODULE_NAME);
 	return;
 }
 

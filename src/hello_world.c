@@ -9,13 +9,13 @@
 
 static int __init hw_init(void)
 {
-	printk(KERN_INFO "[%s] Hello world! \n", MODULE_NAME );
+	printk(KERN_INFO "[%s] Hello world! \n", MODULE_NAME);
 	return 0;
 }
 
 static void __exit hw_exit(void)
 {
-	printk(KERN_INFO "[%s] Exit from the module. \n", MODULE_NAME );
+	printk(KERN_INFO "[%s] Exit from the module. \n", MODULE_NAME);
 	return;
 }
 
