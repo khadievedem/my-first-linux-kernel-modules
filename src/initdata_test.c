@@ -1,5 +1,9 @@
 /*
- * initdata_test.c - 
+ * initdata_test.c - module that example of using __initdata
+ * why we neew __initdata and __init ?
+ * As you know, after boot, the kernel frees up a special section.
+ * funcitons and data marked with __inti and __initdata are dropped after boot is complete:
+ * functions marked with __exit is only required on exit. 
 */
 #include <linux/module.h>
 #include <linux/init.h>
