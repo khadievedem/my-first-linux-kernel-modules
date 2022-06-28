@@ -1,5 +1,5 @@
 /*
- * hello_world.c - 
+ * hello_world.c - module that just says hello to the world
 */
 #include <linux/module.h>
 #include <linux/init.h>
