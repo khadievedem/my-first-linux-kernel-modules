@@ -23,3 +23,4 @@ module_init(hw_init);
 module_exit(hw_exit);
 
 MODULE_LICENSE("LGPL");
+MODULE_AUTHOR("Khadiev Edem");

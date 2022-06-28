@@ -30,3 +30,4 @@ module_init(initdata_init);
 module_exit(initdata_exit);
 
 MODULE_LICENSE("LGPL");
+MODULE_AUTHOR("Khadiev Edem");
