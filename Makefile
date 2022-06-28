@@ -11,7 +11,7 @@ endif
 obj-m:=$(TARGER_MODULE).o
 
 CLANG_FORMAT=clang-format
-FORMAT_SRC=src/my_simple_module.c src/main.c src/my_simple_module.h src/hello_world.c
+FORMAT_SRC=src/my_simple_module.c src/main.c src/my_simple_module.h src/hello_world.c src/initdata_test.c
 
 KERNEL_SRC=/lib/modules/$(shell uname -r)/build
 PWD=$(shell pwd)
