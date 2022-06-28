@@ -24,3 +24,4 @@ module_exit(hw_exit);
 
 MODULE_LICENSE("LGPL");
 MODULE_AUTHOR("Khadiev Edem");
+MODULE_DESCRIPTION("Say hello to the World!!!");

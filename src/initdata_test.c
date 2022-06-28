@@ -31,3 +31,4 @@ module_exit(initdata_exit);
 
 MODULE_LICENSE("LGPL");
 MODULE_AUTHOR("Khadiev Edem");
+MODULE_DESCRIPTION("An example of using __initdata");

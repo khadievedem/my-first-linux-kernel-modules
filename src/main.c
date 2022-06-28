@@ -17,3 +17,4 @@ module_exit(my_exit);
 
 MODULE_LICENSE("LGPL");
 MODULE_AUTHOR("Khadiev Edem");
+MODULE_DESCRIPTION("A sample character device driver module.");
