@@ -59,3 +59,7 @@ rmmod module_name
 ```
 
 ## Troubleshooting
+```
+make[1]: *** /lib/modules/$(uname -r)/build: No such file or directory. Stop.
+```
+Use [torvalds/linux](https://github.com/torvalds/linux).
