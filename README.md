@@ -48,6 +48,13 @@ insmod module_name
 dmesg
 ```
 
+##### Create new char device (Only for simple_module)
+check the major number in `/proc/devices/` 
+```sh
+mknod /dev/simple-driver MN 0
+```
+where MN is a major number of device
+
 ## Remove module
 ```sh
 make MODULE=module_name unload
