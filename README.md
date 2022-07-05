@@ -50,10 +50,20 @@ dmesg
 
 ##### Create new char device (Only for simple_module)
 check the major number in `/proc/devices/` 
-```sh
-mknod /dev/simple-driver MN 0
+e.g. :
 ```
-where MN is a major number of device
+1 mem
+4 /dev/vc/0
+4 tty
+4 ttyS
+...
+510 Simple-driver
+```
+
+```sh
+mknod /dev/simple-driver c 510 0
+```
+where 510 and 0 are a major and minor numbers respectively
 
 ## Remove module
 ```sh
