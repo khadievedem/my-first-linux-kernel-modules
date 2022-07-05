@@ -73,15 +73,15 @@ static ssize_t device_read(struct file *file_ptr, char __user *user_buffer,
 	printk(KERN_NOTICE
 	       "[%s] Device file is read at offset %i, read bytes count = %u",
 	       DEVICE_NAME, (int)*position, (unsigned int)count);
+	int msg_size = strlen(msg_ptr);
 	/* if we try to read data out of our file => we have nothing to read */
-	if (*position >= g_s_Hello_World_size) {
+	if (*position >= msg_size) {
 		return 0;
 	}
-	if (*position + count > g_s_Hello_World_size) {
-		count = g_s_Hello_World_size - *position;
+	if (*position + count > msg_size) {
+		count = msg_ptr - *position;
 	}
-	if (copy_to_user(user_buffer, g_s_Hello_World_string + *position,
-			 count) != 0) {
+	if (copy_to_user(user_buffer, msg_ptr + *position, count) != 0) {
 		return -EFAULT;
 	}
 	*position += count;
