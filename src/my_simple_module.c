@@ -70,16 +70,17 @@ void unregister_device(void)
 static ssize_t device_read(struct file *file_ptr, char __user *user_buffer,
 			   size_t count, loff_t *position)
 {
+	int msg_size = sizeof msg;
+
 	printk(KERN_NOTICE
 	       "[%s] Device file is read at offset %i, read bytes count = %u",
 	       DEVICE_NAME, (int)*position, (unsigned int)count);
-	int msg_size = strlen(msg_ptr);
 	/* if we try to read data out of our file => we have nothing to read */
 	if (*position >= msg_size) {
 		return 0;
 	}
 	if (*position + count > msg_size) {
-		count = msg_ptr - *position;
+		count = msg_size - *position;
 	}
 	if (copy_to_user(user_buffer, msg_ptr + *position, count) != 0) {
 		return -EFAULT;
@@ -103,7 +104,7 @@ static int device_open(struct inode *inode, struct file *file)
 	if (is_device_open) {
 		return -EBUSY;
 	}
-	sprintf(msg, "You have opened this file %d times", counter);
+	sprintf(msg, "You have opened this file %d times", ++counter);
 	msg_ptr = msg;
 	is_device_open++;
 	try_module_get(THIS_MODULE); /*
