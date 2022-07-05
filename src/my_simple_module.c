@@ -7,6 +7,7 @@
 #include "my_simple_module.h"
 
 #define DEVICE_NAME "Simple-driver"
+#define BUFFER_SIZE 256
 /*
  * Prototypes
  */
@@ -19,8 +20,8 @@ static int device_release(struct inode *, struct file *);
  */
 static int is_device_open;
 static unsigned int device_file_major_number;
-static const char g_s_Hello_World_string[] = "Hello world from kernel mode !\n";
-static const ssize_t g_s_Hello_World_size = sizeof g_s_Hello_World_string;
+static char msg[BUFFER_SIZE];
+static char *msg_ptr;
 
 static struct file_operations simple_driver_fops = {
 	owner: THIS_MODULE,
@@ -102,6 +103,8 @@ static int device_open(struct inode *inode, struct file *file)
 	if (is_device_open) {
 		return -EBUSY;
 	}
+	sprintf(msg, "You have opened this file %d times", counter);
+	msg_ptr = msg;
 	is_device_open++;
 	try_module_get(THIS_MODULE); /*
                                   * increments the use count of device
