@@ -1,6 +1,6 @@
 # Simple linux kernel modules
 ## MODULES LIST
-1. simple-module
+1. simple-module (default)
 2. hello_world
 3. initdata_test
 4.
