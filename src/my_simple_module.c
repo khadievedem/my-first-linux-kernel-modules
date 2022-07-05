@@ -6,8 +6,6 @@
 
 #include "my_simple_module.h"
 
-#define DEVICE_NAME "Simple-driver"
-#define BUFFER_SIZE 256
 /*
  * Prototypes
  */
