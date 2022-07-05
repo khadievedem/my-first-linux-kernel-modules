@@ -6,9 +6,19 @@
 
 #include "my_simple_module.h"
 
-static ssize_t device_file_read(struct file *, char *, size_t, loff_t *);
+#define DEVICE_NAME "Simple-driver"
+/*
+ * Prototypes
+ */
+static ssize_t device_read(struct file *, char *, size_t, loff_t *);
+static ssize_t device_write(struct file *, const char *, size_t, loff_t *);
+static int device_open(struct inode *, struct file *);
+static int device_release(struct inode *, struct file *);
+/*
+ * Device data
+ */
+static int is_device_open;
 static unsigned int device_file_major_number;
-static const char device_name[] = "Simple-driver";
 static const char g_s_Hello_World_string[] = "Hello world from kernel mode !\n";
 static const ssize_t g_s_Hello_World_size = sizeof g_s_Hello_World_string;
 
