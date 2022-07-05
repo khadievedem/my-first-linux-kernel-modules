@@ -23,8 +23,11 @@ static const char g_s_Hello_World_string[] = "Hello world from kernel mode !\n";
 static const ssize_t g_s_Hello_World_size = sizeof g_s_Hello_World_string;
 
 static struct file_operations simple_driver_fops = {
-	.owner = THIS_MODULE,
-	.read = device_file_read,
+    owner : THIS_MODULE,
+    read : device_read,
+    write : device_write,
+    open : device_open,
+    release : device_release
 };
 
 int register_device(void)
